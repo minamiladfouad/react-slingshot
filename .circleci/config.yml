@@ -22,14 +22,13 @@ jobs:
         - checkout
         - run: npm audit
 
-
 workflows:
   CI-pipeline:
     jobs:
       - build
       - test:
           requires:
-            build
+            - build
       - analyze:
           requires:
-            test
+            - test
